@@ -279,23 +279,23 @@ const SPLMint: NextPage = () => {
             </div>
           </div>
 
-          <div className="flex flex-col items-center mt-28 ring-white ring-2 rounded-2xl p-12">
+          <div className="flex flex-col ml-4 max-w-sm sm:max-w-md md:max-w-none items-center mt-28 ring-white ring-2 rounded-2xl p-12">
             <h2 className="text-5xl">Update Mint</h2>
             {updatedErrorText.length > 0 && (<h3 className="text-red-600 mt-4">{updatedErrorText}</h3>)}
-            <label className="flex flex-col mt-10 ml-10 mr-10 text-3xl">
+            <label className="flex flex-col w-full mt-10 text-3xl">
               Address of Mint
               <input 
                 id="mintInput"
                 value={mintAddress}
-                style={{width: "640px"}}
+                // style={{width: "640px"}}
                 onChange={(event) => {
                   setMintAddress(event.target.value)
                 }}
-                className="mt-4 ml-20 mr-20 p-5 rounded-2xl text-black text-lg text-center font-serif"
+                className="mt-4 p-5 w-fill md:w-fill rounded-2xl text-black text-lg text-center font-serif"
               ></input>
             </label>
             { fetchedMint.address && (
-              <div className="mt-20">
+              <div className="mt-20 max-w-sm md:max-w-none">
                 <MintInfo mintInfo={fetchedMint} />
               </div>
             ) }
@@ -304,13 +304,13 @@ const SPLMint: NextPage = () => {
                 enabled={mintActionEnabled}
                 text={"Remove freeze authority"}
                 onClick={removeFreezeAuthority}
-                classes={["mt-20", "w-48", "h-28", "bg-red-600"]}
+                classes={["mt-20", "w-auto", "bg-red-600"]}
               />
               <Button
                 enabled={mintActionEnabled}
                 text={"Remove mint authority"}
                 onClick={removeMintAuthority}
-                classes={["mt-20", "w-48", "h-28", "bg-red-600"]}
+                classes={["mt-20", "w-auto", "bg-red-600"]}
               />
             </div>
           </div>
