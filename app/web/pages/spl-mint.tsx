@@ -291,7 +291,7 @@ const SPLMint: NextPage = () => {
                 onChange={(event) => {
                   setMintAddress(event.target.value)
                 }}
-                className="mt-4 p-5 w-fill md:w-fill rounded-2xl text-black text-lg text-center font-serif"
+                className="mt-4 p-5 w-fill md:w-fill rounded-2xl text-black text-base text-center font-serif"
               ></input>
             </label>
             { fetchedMint.address && (
