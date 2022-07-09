@@ -5,7 +5,7 @@ import {
 export default function MintInfo(props : { mintInfo: Mint | undefined, classes?: string[] } = { mintInfo: undefined, classes: [] }) {
   if (props.mintInfo && props.mintInfo.address) {
     return (
-      <div className="flex flex-col justify-start items-start text-left">
+      <div className="flex flex-col justify-start items-start text-left text-xs sm:text-sm md:text-base">
         <label>Address <div>{props.mintInfo.address.toString()}</div></label>
         <br />
         <label>Freeze Authority <div>{props.mintInfo.freezeAuthority ? props.mintInfo.freezeAuthority.toString() : "None"}</div></label>

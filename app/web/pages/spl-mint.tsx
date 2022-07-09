@@ -299,7 +299,7 @@ const SPLMint: NextPage = () => {
                 <MintInfo mintInfo={fetchedMint} />
               </div>
             ) }
-            <div className="flex gap-x-16 items-center justify-center">
+            <div className="flex flex-col lg:flex-row gap-x-16 items-center justify-center">
               <Button
                 enabled={mintActionEnabled}
                 text={"Remove freeze authority"}
