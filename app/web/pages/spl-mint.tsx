@@ -226,8 +226,9 @@ const SPLMint: NextPage = () => {
 
   if (!wallet_connected) {
     return (
-      <main className="flex w-screen h-screen items-center justify-center px-6 text-center">
-        <div className='flex items-center mt-10 text-white'>
+      <main className="flex flex-col w-full h-full items-center justify-center p-6 text-center font-bold text-white">
+        <h1 className="text-7xl mt-12">SPL Mint</h1>
+        <div className='flex mt-10 items-center text-white'>
           <WalletMultiButton />
         </div>
       </main>
@@ -255,12 +256,14 @@ const SPLMint: NextPage = () => {
   };
 
   return (
-    <main className="flex w-screen flex-1 flex-col items-center px-6 text-center">
-      <div className='flex flex-col items-center mt-10 text-white'>
-        <WalletMultiButton />
-        <div className="w-screen font-bold mt-12 flex flex-col items-center justify-center py-2">
-          <h1 className="text-7xl">SPL Mint</h1>
+    <main className="flex w-full flex-col items-center p-6 text-center">
+      <div className='flex flex-col items-center text-white'>
+        <div className="w-full font-bold mt-12 flex flex-col items-center justify-center">
+          <h1 className="text-7xl font-bold">SPL Mint</h1>
           {errorText.length > 0 && (<h2 className="text-red-600 mt-4">{errorText}</h2>)}
+          <div className='mt-10'>
+            <WalletMultiButton />
+          </div>
 
           <div className="mt-28 ring-white ring-2 rounded-2xl p-6">
             <div className='flex flex-col gap-y-10 pb-4 items-center'>
