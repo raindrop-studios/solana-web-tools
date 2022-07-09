@@ -1,16 +1,16 @@
-import * as Anchor from "@project-serum/anchor";
+// import * as Anchor from "@project-serum/anchor";
 import * as Web3 from '@solana/web3.js';
 
-export default class WebWallet implements Anchor.Wallet {
+export default class WebWallet { //implements Anchor.Wallet {
   _signTransaction: (transaction: Web3.Transaction) => Promise<Web3.Transaction>;
   _signAllTransactions: (transaction: Web3.Transaction[]) => Promise<Web3.Transaction[]>;
-  sendTransaction: (transaction: Anchor.web3.Transaction, connection: Anchor.web3.Connection, options?: any) => Promise<string>;
+  sendTransaction: (transaction: Web3.Transaction, connection: Web3.Connection, options?: any) => Promise<string>;
   _publicKey: Web3.PublicKey;
-  payer: Anchor.web3.Keypair;
+  payer: Web3.Keypair;
 
   static fakeWallet() {
     return new WebWallet(
-      Anchor.web3.PublicKey.default,
+      Web3.PublicKey.default,
       (transaction: Web3.Transaction) => {return Promise.resolve(new Web3.Transaction())},
       (transaction: Web3.Transaction[]) => {return Promise.resolve([new Web3.Transaction()])},
       () => {},
@@ -27,7 +27,7 @@ export default class WebWallet implements Anchor.Wallet {
     this._signTransaction = signTransaction;
     this._signAllTransactions = signAllTransactions;
     this.sendTransaction = sendTransaction;
-    this.payer = new Anchor.web3.Keypair(); 
+    this.payer = new Web3.Keypair(); 
   }
 
   async signTransaction(tx: Web3.Transaction): Promise<Web3.Transaction> {
