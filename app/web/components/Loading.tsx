@@ -1,33 +1,34 @@
 import { useState, useEffect } from 'react';
 
-let timerType: ReturnType<typeof setInterval> | undefined;
-
-function updateLoadingText(loadingText: string, setLoadingText: any, setTimerId: any, mounted: boolean) {
-  console.log("updating loading - ", mounted);
+function updateLoadingText(startingLoadingText: string, loadingText: string, setLoadingText: any, finished: any) {
   if (loadingText.includes("...")) {
-    loadingText = "LOADING";
+    loadingText = startingLoadingText;
   } else {
     loadingText += ".";
   }
-  if (mounted) {
+  if (setLoadingText) {
     setLoadingText(loadingText);
-    setTimerId(setTimeout(() => updateLoadingText(loadingText, setLoadingText, setTimerId, mounted), 1000));
+    return finished(loadingText, setLoadingText, finished);
   }
 }
 
-export default function Loading() {
-  const [loadingText, setLoadingText] = useState("LOADING");
-  const [loadingTimerId, setLoadingTimerId] = useState(timerType);
+const DEFAULT_LOADING = "LOADING";
+export default function Loading(props : { text?: string } = { text: DEFAULT_LOADING }) {
+  const [loadingText, setLoadingText] = useState(props.text || DEFAULT_LOADING);
 
   useEffect(() => {
     let mounted = true;
-    setLoadingTimerId(setTimeout(() => updateLoadingText("LOADING", setLoadingText, setLoadingTimerId, mounted), 1000));
-    return function cleanup() {
-      console.log("cleanup")
-      mounted = false
-      if (loadingTimerId) {
-        clearTimeout(loadingTimerId);
+    const loading = async (loadingText: string, setLoadingText: any, finished: any) => {
+      await new Promise(r => setTimeout(r, 1000));
+      if (mounted) {
+        updateLoadingText(props.text || DEFAULT_LOADING, loadingText, setLoadingText, finished);
       }
+    }
+    if (mounted) {
+      loading(loadingText, setLoadingText, loading)
+    }
+    return function cleanup() {
+      mounted = false;
     }
   }, []);
 

@@ -1,11 +1,8 @@
 import { LOCALHOST } from '@metaplex-foundation/amman';
 import { Amman } from '@metaplex-foundation/amman-client';
 import {
-  getOrCreateAssociatedTokenAccount,
-  mintToChecked,
   getMinimumBalanceForRentExemptMint,
   createInitializeMintInstruction,
-  transferChecked,
   TOKEN_PROGRAM_ID,
   MINT_SIZE,
 } from '@solana/spl-token';
@@ -14,9 +11,6 @@ import {
   CLI,
 } from '@raindrops-protocol/sol-command';
 
-import { Connection as SolKitConnection } from "@raindrops-protocol/sol-kit";
-
-const { Clusters } = SolKitConnection;
 const { Connection, Transaction, SystemProgram } = web3;
 
 async function createMint(
@@ -58,7 +52,7 @@ async function createMint(
   
   return mintPubKey;
 };
-
+ 
 CLI.programCommandWithArgs("init", [], async () => {
   const connection = new Connection(LOCALHOST);
   const amman = Amman.instance();
