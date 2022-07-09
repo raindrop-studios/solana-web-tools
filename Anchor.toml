@@ -1,0 +1,19 @@
+[features]
+seeds = false
+
+[programs.localnet]
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "localnet"
+wallet = ".anchor/ledger/validator-keypair.json"
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
+
+[workspace]
+members = []
+
+[[test.genesis]]

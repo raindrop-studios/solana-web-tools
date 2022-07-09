@@ -1,0 +1,16 @@
+@font-face {
+  font-family: 'Splatter_Kings';
+  src: url('Splatter_Kings.otf');
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* body {
+  font-family: 'Splatter_Kings';
+  color: white;
+} */
+
+button {
+  font-family: 'Splatter_Kings';
+  color: white;
+}

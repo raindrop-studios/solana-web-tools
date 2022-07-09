@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "types": [],
+    "typeRoots": ["./node_modules/@types", "./node_modules/@solana/spl-token/types"],
+    "lib": ["ES6"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es6",
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  }
+}
