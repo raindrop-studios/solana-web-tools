@@ -1,5 +1,7 @@
 export default function Button(props : { text: string, onClick?: any, enabled: boolean, classes?: string[] } = { text: "buttonText", onClick: () => {},  enabled: true, classes: [] }) {
   let buttonClassName = [
+    "text-xl",
+    "font-semibold",
     "rounded-2xl",
     "bg-violet-600",
     "mt-4",
