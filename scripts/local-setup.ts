@@ -9,7 +9,7 @@ import {
 import * as web3 from '@solana/web3.js';
 import {
   CLI,
-} from '@raindrops-protocol/sol-command';
+} from '@raindrop-studios/sol-command';
 
 const { Connection, Transaction, SystemProgram } = web3;
 

@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import { useEffect, useState, Dispatch, SetStateAction } from 'react';
 
-import * as SolKit from "@raindrops-protocol/sol-kit";
+import * as SolKit from "@raindrop-studios/sol-kit";
 import * as web3 from "@solana/web3.js";
 import {
   AuthorityType,
